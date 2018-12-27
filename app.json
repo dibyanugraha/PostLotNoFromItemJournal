@@ -1,0 +1,23 @@
+{
+  "id": "db0e7550-a07a-4989-a511-64b2f8ec53ea",
+  "name": "Post Lot No. From Item Journal",
+  "publisher": "Ariestya Dibyanugraha",
+  "brief": "Enable posting line with new field called 'Lot No. Entries' in Item Journals instead of entering manually using Item Tracking Lines",
+  "description": "",
+  "version": "1.0.0.0",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "",
+  "capabilities": [],
+  "dependencies": [],
+  "screenshots": [],
+  "platform": "13.0.0.0",
+  "application": "13.0.0.0",
+  "idRange": {
+    "from": 50000,
+    "to": 99999
+  },
+  "runtime": "2.1"
+}
