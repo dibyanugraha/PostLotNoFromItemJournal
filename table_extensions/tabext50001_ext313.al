@@ -16,5 +16,5 @@ tableextension 50001 "Inventory Setup Ext." extends "Inventory Setup"
         }
     }
     var
-        txtConfEnableInsert: Label 'Enabling this will force user to input Lot No. in every positive adjustment/purchases made through Item Journal. Continue?'
+        txtConfEnableInsert: Label 'Enabling this will force user to input Lot No. in every positive adjustment/purchases made through Item Journal. Continue?';
 }
