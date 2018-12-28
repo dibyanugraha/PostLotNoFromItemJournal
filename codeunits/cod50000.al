@@ -35,8 +35,7 @@ codeunit 50100 "Manage Reserv. Entry"
             ItemJnlLine.TestField("Entry Lot No.");
     end;
 
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Post Line", 'OnBeforePostItemJnlLine', '', false, false)]
-    local procedure InsertItemJournalLine(var ItemJournalLine: Record "Item Journal Line")
+    procedure InsertItemJournalLine(var ItemJournalLine: Record "Item Journal Line")
     var
         InvSet: Record "Inventory Setup";
         EnableInsert: Boolean;
