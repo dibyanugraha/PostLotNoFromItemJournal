@@ -1,4 +1,4 @@
-tableextension 50001 "Inventory Setup Ext." extends "Inventory Setup"
+tableextension 50101 "Inventory Setup Ext." extends "Inventory Setup"
 {
     fields
     {

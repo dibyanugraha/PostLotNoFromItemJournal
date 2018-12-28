@@ -1,4 +1,4 @@
-pageextension 50000 "Item Journal Page Ext." extends "Item Journal"
+pageextension 50100 "Item Journal Page Ext." extends "Item Journal"
 {
     layout
     {

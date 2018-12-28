@@ -1,4 +1,4 @@
-codeunit 50000 "Manage Reserv. Entry"
+codeunit 50100 "Manage Reserv. Entry"
 {
     TableNo = "Item Journal Line";
 

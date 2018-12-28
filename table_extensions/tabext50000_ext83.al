@@ -1,4 +1,4 @@
-tableextension 50000 "Item Journal Line Ext." extends "Item Journal Line"
+tableextension 50100 "Item Journal Line Ext." extends "Item Journal Line"
 {
     fields
     {
