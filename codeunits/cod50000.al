@@ -35,4 +35,31 @@ codeunit 50000 "Manage Reserv. Entry"
             ItemJnlLine.TestField("Entry Lot No.");
     end;
 
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Post Line", 'OnBeforePostItemJnlLine', '', false, false)]
+    local procedure InsertItemJournalLine(var ItemJournalLine: Record "Item Journal Line")
+    var
+        InvSet: Record "Inventory Setup";
+        EnableInsert: Boolean;
+        JournalIsMadeFromItemJournal: Boolean;
+    begin
+        Clear(EnableInsert);
+        Clear(JournalIsMadeFromItemJournal);
+
+        InvSet.Get();
+        if InvSet."Enable Insert Lot No." then
+            EnableInsert := true;
+        if ItemJournalLine."Document Type" = ItemJournalLine."Document Type"::" " then
+            JournalIsMadeFromItemJournal := true;
+
+        // remove the manual reservation entries
+        if EnableInsert and JournalIsMadeFromItemJournal then
+            InsertReservationManually(ItemJournalLine);
+    end;
+
+    local procedure InsertReservationManually(var itemJnlLine: Record "Item Journal Line")
+    var
+        InsertReservationCU: Codeunit "Manage Reserv. Entry";
+    begin
+        InsertReservationCU.Run(itemJnlLine);
+    end;
 }
