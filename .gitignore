@@ -1,6 +1,1 @@
-.vscode/launch.json
-.alpackages/Microsoft_Application_13.1.25940.0.app
-.alpackages/Microsoft_System_13.0.12929.0.app
-.alpackages/Microsoft_Application_13.0.24630.0.app
-.alpackages/*.app
 *.app

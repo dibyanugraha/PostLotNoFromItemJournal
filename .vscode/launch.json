@@ -1,0 +1,17 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "al",
+            "request": "launch",
+            "name": "Localhost",
+            "server": "http://localhost",
+            "serverInstance": "BC130_CU01",
+            "authentication": "Windows",
+            "port": 13049,
+            "startupObjectId": 22,
+            "startupObjectType": "Page",
+            "breakOnError": true
+        }
+    ]
+}
