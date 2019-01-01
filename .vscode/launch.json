@@ -6,7 +6,7 @@
             "request": "launch",
             "name": "Localhost",
             "server": "http://localhost",
-            "serverInstance": "BC130_CU01",
+            "serverInstance": "BC130_CU02",
             "authentication": "Windows",
             "port": 13049,
             "startupObjectId": 22,

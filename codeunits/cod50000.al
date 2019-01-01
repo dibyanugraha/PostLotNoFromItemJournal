@@ -1,18 +1,16 @@
 codeunit 50100 "Manage Reserv. Entry"
 {
-    TableNo = "Item Journal Line";
-
-    trigger OnRun()
+    local procedure CreateReservEntryManually(itemJnlLine: Record "Item Journal Line")
     var
         CreateReservEntry: Codeunit "Create Reserv. Entry";
     begin
         CreateReservEntry.SetDates(0D, 0D);
         CreateReservEntry.CreateReservEntryFor(
             DATABASE::"Item Journal Line", 0,
-            "Document No.", '', 0, "Line No.", "Qty. Per Unit of Measure",
-            Quantity, "Quantity (Base)", '', "Entry Lot No.");
-        CreateReservEntry.CreateEntry("Item No.", '', "Location Code",
-            Description, 0D, 0D, 0, 3); // must be prospect
+            itemJnlLine."Document No.", '', 0, itemJnlLine."Line No.", itemJnlLine."Qty. Per Unit of Measure",
+            itemJnlLine.Quantity, itemJnlLine."Quantity (Base)", '', itemJnlLine."Entry Lot No.");
+        CreateReservEntry.CreateEntry(itemJnlLine."Item No.", '', itemJnlLine."Location Code",
+            itemJnlLine.Description, 0D, 0D, 0, 3); // must be prospect
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Check Line", 'OnAfterCheckItemJnlLine', '', false, false)]
@@ -52,13 +50,6 @@ codeunit 50100 "Manage Reserv. Entry"
 
         // remove the manual reservation entries
         if EnableInsert and JournalIsMadeFromItemJournal then
-            InsertReservationManually(ItemJournalLine);
-    end;
-
-    local procedure InsertReservationManually(var itemJnlLine: Record "Item Journal Line")
-    var
-        InsertReservationCU: Codeunit "Manage Reserv. Entry";
-    begin
-        InsertReservationCU.Run(itemJnlLine);
+            CreateReservEntryManually(ItemJournalLine);
     end;
 }

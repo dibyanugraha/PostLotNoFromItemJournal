@@ -15,9 +15,11 @@
   "screenshots": [],
   "platform": "13.0.0.0",
   "application": "13.0.0.0",
+  "showMyCode" : true,
   "idRange": {
     "from": 50100,
     "to": 50149
   },
-  "runtime": "2.0"
+  "target": "Internal",
+  "runtime": "2.2"
 }
