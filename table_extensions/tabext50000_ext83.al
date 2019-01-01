@@ -9,13 +9,11 @@ tableextension 50100 "Item Journal Line Ext." extends "Item Journal Line"
             var
                 MgtReservManual: Codeunit "Manage Reserv. Entry";
             begin
-                if xRec."Entry Lot No." <> "Entry Lot No." then begin
+                if (xRec."Entry Lot No." <> "Entry Lot No.") and ("Entry Lot No." <> '') then begin
                     DeleteReservation();
                     MgtReservManual.InsertItemJournalLine(Rec);
                 end else
-                    if "Entry Lot No." = '' then begin
-                        DeleteReservation();
-                    end;
+                    DeleteReservation()
             end;
         }
     }
