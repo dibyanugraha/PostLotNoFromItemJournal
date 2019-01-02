@@ -31,19 +31,13 @@ codeunit 50100 "Manage Reserv. Entry"
 
     local procedure CheckSetting(var ItemJnlLine: Record "Item Journal Line"): Boolean
     var
-        InvSet: Record "Inventory Setup";
-        EnableInsert: Boolean;
         JournalIsMadeFromItemJournal: Boolean;
     begin
-        Clear(EnableInsert);
         Clear(JournalIsMadeFromItemJournal);
 
-        InvSet.Get();
-        if InvSet."Enable Insert Lot No." then
-            EnableInsert := true;
         if ItemJnlLine."Document Type" = ItemJnlLine."Document Type"::" " then
             JournalIsMadeFromItemJournal := true;
-        if EnableInsert and JournalIsMadeFromItemJournal then
+        if JournalIsMadeFromItemJournal then
             exit(true);
         exit(false);
     end;
